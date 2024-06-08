@@ -3,9 +3,11 @@ BiocManager
 circlize
 cli
 collapse
+copula
 cowplot
 data.table
 dendextend
+devtools
 digest
 dplyr
 DT
@@ -15,6 +17,7 @@ factoextra
 fastmatch
 furrr
 future
+GenOrd
 ggdendro
 GGally
 ggfortify
@@ -30,6 +33,7 @@ jinjar
 jpeg
 jquerylib
 knitr
+LaplacesDemon
 logging
 magrittr
 matrixStats
@@ -46,6 +50,8 @@ quarto
 R6
 readr
 rmarkdown
+roxygen2
+roxygen
 rstan
 sass
 scales

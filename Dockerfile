@@ -1,13 +1,12 @@
-ARG R_VERSION
-ARG BIOC_VERSION
+FROM ghcr.io/nexomis/r:4.3.3-Bioc_3.18-06.2024
 
-FROM ghcr.io/nexomis/r:${R_VERSION:-4.3.3}-Bioc_${BIOC_VERSION:-3.18}
+LABEL org.opencontainers.image.title="Docker image for R with nexoverse"
+LABEL org.opencontainers.image.authors="Julien FOURET"
+LABEL org.opencontainers.image.description="Nexoverse is a list of packages used often at Nexomis"
+LABEL org.opencontainers.image.vendor="Nexomis"
+LABEL org.opencontainers.image.licenses="Apache-2.0"
 
-COPY install_cran.r /root/install_cran.r
-COPY install_bioc.r /root/install_bioc.r
-COPY nexoverse.cran.txt /root/nexoverse.cran.txt
-COPY nexoverse.bioc.txt /root/nexoverse.bioc.txt
+COPY install_cran.r install_bioc.r nexoverse.cran.txt nexoverse.bioc.txt  /root/
 
-RUN Rscript /root/install_cran.r /root/nexoverse.cran.txt
-RUN Rscript /root/install_bioc.r /root/nexoverse.bioc.txt
-
+RUN Rscript /root/install_cran.r /root/nexoverse.cran.txt \
+  && Rscript /root/install_bioc.r /root/nexoverse.bioc.txt
