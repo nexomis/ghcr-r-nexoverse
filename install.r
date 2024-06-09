@@ -1,26 +1,29 @@
-
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) == 0) {
   stop("No arguments provided. Please specify a file name.")
 }
 
-input_file <- args[1]
+source_type <- args[1]
+input_file <- args[2]
 
 listpackages = read.table(input_file, header = F)$V1
 
 rspm::enable()
 
 for (pkg_name in listpackages){
-    if (pkg_name != "" & length(find.package(pkg_name, quiet = T)) == 0) {
+    if ( (!startsWith(pkg_name, "#")) & pkg_name != "" & length(find.package(pkg_name, quiet = T)) == 0) {
         print("")
         print("######################################################")
         print("#######          START PACKAGE INSTALL         #######")
         print(pkg_name)
         print("######################################################")
         print("")
-        BiocManager::install(pkg_name, clean = TRUE, ask = FALSE, update = FALSE)
+        if (source_type == "cran"){
+          install.packages(pkg_name, clean = TRUE)
+        } else if (source_type == "bioc") {
+          BiocManager::install(pkg_name, clean = TRUE, ask = FALSE, update = FALSE)
+        }
     }
-}
+} 
 
 rspm::install_sysreqs()
-

@@ -1,9 +1,10 @@
+# commented for package with a bug during install resulting in large size images
 assertthat
 BiocManager
 circlize
 cli
 collapse
-copula
+#copula 
 cowplot
 data.table
 dendextend
@@ -17,7 +18,7 @@ factoextra
 fastmatch
 furrr
 future
-GenOrd
+#GenOrd
 ggdendro
 GGally
 ggfortify
@@ -33,7 +34,7 @@ jinjar
 jpeg
 jquerylib
 knitr
-LaplacesDemon
+#LaplacesDemon
 logging
 magrittr
 matrixStats

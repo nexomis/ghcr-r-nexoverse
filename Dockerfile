@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.description="Nexoverse is a list of packages used
 LABEL org.opencontainers.image.vendor="Nexomis"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 
-COPY install_cran.r install_bioc.r nexoverse.cran.txt nexoverse.bioc.txt  /root/
+COPY install.r nexoverse.cran.txt nexoverse.bioc.txt  /root/
 
-RUN Rscript /root/install_cran.r /root/nexoverse.cran.txt \
-  && Rscript /root/install_bioc.r /root/nexoverse.bioc.txt
+RUN Rscript /root/install.r cran /root/nexoverse.cran.txt \
+  && Rscript /root/install.r bioc /root/nexoverse.bioc.txt
