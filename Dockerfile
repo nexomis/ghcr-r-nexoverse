@@ -1,4 +1,4 @@
-FROM ghcr.io/nexomis/r:4.3.3-Bioc_3.18-06.2024
+FROM ghcr.io/nexomis/r:4.4.0-bioc_3.19-07.2024
 
 LABEL org.opencontainers.image.title="Docker image for R with nexoverse"
 LABEL org.opencontainers.image.authors="Julien FOURET"
