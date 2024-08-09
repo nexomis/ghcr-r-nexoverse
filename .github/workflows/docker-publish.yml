@@ -19,6 +19,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        include:
+          - R_VERSION: '4.4.1'
+            MONTH_BUILD: '08.24'
+          - R_VERSION: '4.4.0'
+            MONTH_BUILD: '08.24'
+          - R_VERSION: '4.3.3'
+            MONTH_BUILD: '08.24'
+
     permissions:
       contents: read
       packages: write
@@ -58,6 +69,8 @@ jobs:
             latest=false
             prefix=
             suffix=
+          tags: |
+            type=raw,value=${{ matrix.R_VERSION }}-${{ github.ref_name }}
 
       - name: Build and push Docker image
         id: build-and-push
@@ -67,9 +80,5 @@ jobs:
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
-          labels: |
-            org.opencontainers.image.created=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
-            org.opencontainers.image.revision=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
-            org.opencontainers.image.source=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.source'] }}
-            org.opencontainers.image.url=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.url'] }}
-            org.opencontainers.image.version=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
+          build-args: BASE_TAG=${{ matrix.R_VERSION }}-${{ matrix.MONTH_BUILD }}
+          labels: ${{ steps.meta.outputs.labels }}

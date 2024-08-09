@@ -4,7 +4,8 @@ BiocManager
 circlize
 cli
 collapse
-#copula 
+#copula
+covr
 cowplot
 data.table
 dendextend
@@ -20,6 +21,7 @@ furrr
 future
 #GenOrd
 ggdendro
+ggExtra
 GGally
 ggfortify
 ggh4x
@@ -27,15 +29,18 @@ ggmulti
 ggplot2
 ggpubr
 ggrepel
+ggridges
 ggtext
 gridExtra
 htmltools
 jinjar
 jpeg
 jquerylib
+kableExtra
 knitr
 #LaplacesDemon
 logging
+lubridate
 magrittr
 matrixStats
 multcompView
@@ -43,6 +48,8 @@ ontologyIndex
 openxlsx
 parallelly
 parallel
+patchwork
+plotly
 philentropy
 pkgload
 purrr
@@ -56,6 +63,7 @@ roxygen
 rstan
 sass
 scales
+shiny
 stringr
 testthat
 tibble
