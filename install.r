@@ -22,6 +22,8 @@ for (pkg_name in listpackages){
           install.packages(pkg_name, clean = TRUE)
         } else if (source_type == "bioc") {
           BiocManager::install(pkg_name, clean = TRUE, ask = FALSE, update = FALSE)
+        } else if (source_type == "github") {
+          devtools::install_github(pkg_name, clean = TRUE)
         }
     }
 } 

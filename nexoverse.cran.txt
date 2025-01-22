@@ -69,6 +69,7 @@ testthat
 tibble
 tidyr
 tidyselect
+tidyverse
 tinytex
 tzdb
 vdiffr

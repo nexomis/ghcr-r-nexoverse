@@ -23,12 +23,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - R_VERSION: '4.4.1'
-            MONTH_BUILD: '08.24'
-          - R_VERSION: '4.4.0'
-            MONTH_BUILD: '08.24'
+          - R_VERSION: '4.4.2'
+            MONTH_BUILD: '01.25'
           - R_VERSION: '4.3.3'
-            MONTH_BUILD: '08.24'
+            MONTH_BUILD: '01.25'
 
     permissions:
       contents: read
