@@ -46,6 +46,7 @@ matrixStats
 multcompView
 ontologyIndex
 openxlsx
+pandoc
 parallelly
 parallel
 patchwork
@@ -72,6 +73,7 @@ tidyselect
 tidyverse
 tinytex
 tzdb
+vcfR
 vdiffr
 vroom
 yaml
