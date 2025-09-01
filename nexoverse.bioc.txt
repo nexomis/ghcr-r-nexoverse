@@ -1,7 +1,0 @@
-apeglm
-dearseq
-DESeq2
-edgeR
-limma
-rhdf5
-tximport
